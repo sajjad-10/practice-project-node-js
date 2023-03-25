@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1>
+        <%=pageName%>
+    </h1>
+    <form action="/user/<%=user.id%>?methodd=PUT" method="post">
+        <input type="text" name="id" value="<%=user.id%>">
+        <input type="text" name="first_name" value="<%=user.first_name%>">
+        <input type="text" name="last_name" value="<%=user.last_name%>">
+        <input type="text" name="email" value="<%=user.email%>">
+        <input type="text" name="password" value="<%=user.password%>">
+        <input type="text" name="avatar" value="<%=user.avatar%>">
+        <input type="submit" value="Update">
+    </form>
+
+    <div>
+        <header><img src="<%=user.avatar%>"></header>
+        <main>
+            <span>
+                <%=user.id%>
+            </span><br>
+            <span>
+                <%=user.first_name%>
+            </span>
+            <span>
+                <%=user.last_name%>
+            </span><br>
+            <span>
+                <%=user.email%>
+            </span><br>
+            <span>
+                <%=user.password%>
+            </span>
+        </main>
+    </div>
+</body>
+
+</html>

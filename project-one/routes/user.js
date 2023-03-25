@@ -15,15 +15,12 @@ router.get("/", (req, res) => {
 }); // see all user
 
 router.get("/:id", (req, res) => {
-    let user = users.filter((user) => {
+    let user = users.find((user) => {
         if (user.id == req.params.id) {
             return user;
         }
     });
-    res.status(200).json({
-        data: user,
-        success: true,
-    });
+    res.render("user", { pageName: "User", user });
 }); // see one user
 
 router.post(
@@ -55,10 +52,7 @@ router.put("/:id", (req, res) => {
             return user;
         }
     });
-    res.json({
-        data: "The user was update.",
-        success: true,
-    });
+    res.redirect("/user");
 }); // update user
 
 router.delete("/:id", (req, res) => {
