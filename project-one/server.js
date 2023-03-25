@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
 
+require('dotenv').config()
+
 global.config = require("./config");
 
 app.use(express.static(__dirname + "/public"));
@@ -12,11 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(methodOverride("methodd"));
 
-app.use(cookieParser("securitsampe321979djkasd83dasd"));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.use(
     session({
-        secret: "securitsampe321979djkasd83dasds",
+        secret: process.env.SESSION_SECRET,
         resave: true,
         saveUninitialized: true,
     })
