@@ -37,7 +37,6 @@ app.post(
         "The password length should be more than 2 characters."
     ).isLength({ min: 5 }),
     (req, res) => {
-
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array() });
@@ -52,6 +51,34 @@ app.post(
         });
     }
 ); // add new user
+
+app.put("/:id", (req, res) => {
+    users = users.map((user) => {
+        if (user.id == req.params.id) {
+            return req.body;
+        } else {
+            return user;
+        }
+    });
+    res.json({
+        data: "The user was update.",
+        success: true,
+    });
+
+}); // update user
+
+app.delete('/:id',(req,res)=>{
+    users = users.filter((user)=>{
+        if (user.id != req.params.id) {
+            return users
+        }
+    })
+    res.json({
+        data: "The user was delete.",
+        success: true,
+    });
+
+}) // delete user
 
 app.listen(config.port, () => {
     console.log(`server is rerunning on port ${config.port}`);
