@@ -67,10 +67,7 @@ router.delete("/:id", (req, res) => {
             return users;
         }
     });
-    res.json({
-        data: "The user was delete.",
-        success: true,
-    });
+    res.redirect("/user");
 }); // delete user
 
 module.exports = router;

@@ -46,8 +46,11 @@
                     <td>
                         <%=user.password%>
                     </td>
-
                     <td><img src="<%=user.avatar%>"></td>
+                    <td>
+                        <form action="/user/<%=user.id%>?methodd=DELETE" method="post"><input type="submit"
+                                value="remove"></form>
+                    </td>
                 </tr>
                 <%})%>
         </tbody>
