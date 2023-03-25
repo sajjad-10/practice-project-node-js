@@ -11,7 +11,12 @@ router.get("/", (req, res) => {
     //     success: true,
     // });
 
-    res.render("users", { pageName: "Users - all user", users });
+    res.render("users", {
+        pageName: "Users - all user",
+        users,
+        errors: req.flash("errors"),
+        message: req.flash("message"),
+    });
 }); // see all user
 
 router.get("/:id", (req, res) => {
@@ -34,13 +39,15 @@ router.post(
     (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
+            req.flash("errors", errors.array());
             return res.redirect("/user");
         }
 
         console.log(req.body);
         req.body.id = parseInt(req.body.id); // convert string to number
         users.push(req.body);
-        res.redirect("/user");
+        req.flash("message", "The new user was added.");
+        return res.redirect("/user");
     }
 ); // add new user
 
@@ -52,6 +59,7 @@ router.put("/:id", (req, res) => {
             return user;
         }
     });
+    req.flash("message", "The user was update.");
     res.redirect("/user");
 }); // update user
 
@@ -61,6 +69,7 @@ router.delete("/:id", (req, res) => {
             return users;
         }
     });
+    req.flash("message", "The user was delete.");
     res.redirect("/user");
 }); // delete user
 

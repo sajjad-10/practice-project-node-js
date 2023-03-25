@@ -8,56 +8,74 @@
     <h1>
         <%=pageName%>
     </h1>
-    <div>
-        <form action="/user" method="post">
-            <input type="text" placeholder="id" name="id">
-            <input type="text" placeholder="first_name" name="first_name">
-            <input type="text" placeholder="last_name" name="last_name">
-            <input type="text" placeholder="email" name="email">
-            <input type="text" placeholder="password" name="password">
-            <input type="text" placeholder="img address" name="avatar">
-            <input type="submit">
-        </form>
-    </div>
-    <table>
-        <thead>
-            <th>ID</th>
-            <th>Name</th>
-            <th>LastName</th>
-            <th>Email</th>
-            <th>password</th>
-            <th>Avatar</th>
-        </thead>
-        <tbody>
-            <% users.forEach((user)=>{%>
-                <tr>
-                    <td>
-                        <%=user.id%>
-                    </td>
-                    <td>
-                        <%=user.first_name%>
-                    </td>
-                    <td>
-                        <%=user.last_name%>
-                    </td>
-                    <td>
-                        <%=user.email%>
-                    </td>
-                    <td>
-                        <%=user.password%>
-                    </td>
-                    <td><img src="<%=user.avatar%>"></td>
-                    <td>
-                        <form action="/user/<%=user.id%>?methodd=DELETE" method="post"><input type="submit"
-                                value="remove"></form>
-                    </td>
-                    <td>
-                        <a href="/user/<%=user.id%>">see user</a>
-                    </td>
-                </tr>
-                <%})%>
-        </tbody>
-    </table>
+
+        <% if(errors.length){%>
+            <div>
+                <ul>
+                    <% errors.forEach((err)=>{%>
+                        <li style="color: red;">
+                            <%=err.msg%>
+                        </li>
+                    <%})%>
+                </ul>
+            </div>
+        <%}%>
+        <% if(message.length){%>
+            <h3 style="color: green;">
+                <%=message%>
+            </h3>
+        <%}%>
+
+            <div>
+                <form action="/user" method="post">
+                    <input type="text" placeholder="id" name="id">
+                    <input type="text" placeholder="first_name" name="first_name">
+                    <input type="text" placeholder="last_name" name="last_name">
+                    <input type="text" placeholder="email" name="email">
+                    <input type="text" placeholder="password" name="password">
+                    <input type="text" placeholder="img address" name="avatar">
+                    <input type="submit">
+                </form>
+            </div>
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>password</th>
+                    <th>Avatar</th>
+                </thead>
+                <tbody>
+                    <% users.forEach((user)=>{%>
+                        <tr>
+                            <td>
+                                <%=user.id%>
+                            </td>
+                            <td>
+                                <%=user.first_name%>
+                            </td>
+                            <td>
+                                <%=user.last_name%>
+                            </td>
+                            <td>
+                                <%=user.email%>
+                            </td>
+                            <td>
+                                <%=user.password%>
+                            </td>
+                            <td><img src="<%=user.avatar%>"></td>
+                            <td>
+                                <form action="/user/<%=user.id%>?methodd=DELETE" method="post"><input type="submit"
+                                        value="remove"></form>
+                            </td>
+                            <td>
+                                <a href="/user/<%=user.id%>">see user</a>
+                            </td>
+                        </tr>
+                        <%})%>
+                </tbody>
+            </table>
 </body>
 
 </html>
