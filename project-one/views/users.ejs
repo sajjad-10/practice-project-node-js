@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1>
+        <%=pageName%>
+    </h1>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Avatar</th>
+        </thead>
+        <tbody>
+           <% users.forEach((user)=>{%>
+                <tr>
+                    <td><%=user.id%></td>
+                    <td><%=user.first_name%></td>
+                    <td><%=user.last_name%></td>
+                    <td><%=user.email%></td>
+                    <td><img src="<%=user.avatar%>" ></td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+</body>
+
+</html>

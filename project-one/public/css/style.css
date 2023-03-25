@@ -1,6 +1,14 @@
-body{
+body {
     background-color: aliceblue;
 }
-h1{
+h1 {
     color: blue;
+}
+
+table {
+    border: 1px solid black;
+}
+table td {
+    border: 1px solid black;
+    padding: 3px 5px;
 }
