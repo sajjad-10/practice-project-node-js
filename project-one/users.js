@@ -5,6 +5,7 @@ module.exports = [
         first_name: "Michael",
         last_name: "Lawson",
         avatar: "https://reqres.in/img/faces/7-image.jpg",
+        password: "Lawson",
     },
     {
         id: 8,
@@ -12,6 +13,7 @@ module.exports = [
         first_name: "Lindsay",
         last_name: "Ferguson",
         avatar: "https://reqres.in/img/faces/8-image.jpg",
+        password: "Ferguson",
     },
     {
         id: 9,
@@ -19,6 +21,7 @@ module.exports = [
         first_name: "Tobias",
         last_name: "Funke",
         avatar: "https://reqres.in/img/faces/9-image.jpg",
+        password: "Funke",
     },
     {
         id: 10,
@@ -26,6 +29,7 @@ module.exports = [
         first_name: "Byron",
         last_name: "Fields",
         avatar: "https://reqres.in/img/faces/10-image.jpg",
+        password: "Fields",
     },
     {
         id: 11,
@@ -33,6 +37,7 @@ module.exports = [
         first_name: "George",
         last_name: "Edwards",
         avatar: "https://reqres.in/img/faces/11-image.jpg",
+        password: "Edwards",
     },
     {
         id: 12,
@@ -40,5 +45,6 @@ module.exports = [
         first_name: "Rachel",
         last_name: "Howell",
         avatar: "https://reqres.in/img/faces/12-image.jpg",
+        password: "Howell",
     },
 ];

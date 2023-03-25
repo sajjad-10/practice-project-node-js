@@ -8,24 +8,48 @@
     <h1>
         <%=pageName%>
     </h1>
+    <div>
+        <form action="/user" method="post">
+            <input type="text" placeholder="id" name="id">
+            <input type="text" placeholder="first_name" name="first_name">
+            <input type="text" placeholder="last_name" name="last_name">
+            <input type="text" placeholder="email" name="email">
+            <input type="text" placeholder="password" name="password">
+            <input type="text" placeholder="img address" name="avatar">
+            <input type="submit">
+        </form>
+    </div>
     <table>
         <thead>
             <th>ID</th>
             <th>Name</th>
             <th>LastName</th>
             <th>Email</th>
+            <th>password</th>
             <th>Avatar</th>
         </thead>
         <tbody>
-           <% users.forEach((user)=>{%>
+            <% users.forEach((user)=>{%>
                 <tr>
-                    <td><%=user.id%></td>
-                    <td><%=user.first_name%></td>
-                    <td><%=user.last_name%></td>
-                    <td><%=user.email%></td>
-                    <td><img src="<%=user.avatar%>" ></td>
+                    <td>
+                        <%=user.id%>
+                    </td>
+                    <td>
+                        <%=user.first_name%>
+                    </td>
+                    <td>
+                        <%=user.last_name%>
+                    </td>
+                    <td>
+                        <%=user.email%>
+                    </td>
+                    <td>
+                        <%=user.password%>
+                    </td>
+
+                    <td><img src="<%=user.avatar%>"></td>
                 </tr>
-            <%})%>
+                <%})%>
         </tbody>
     </table>
 </body>

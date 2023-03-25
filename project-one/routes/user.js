@@ -37,16 +37,13 @@ router.post(
     (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(422).json({ errors: errors.array() });
+            return res.redirect("/user");
         }
 
         console.log(req.body);
         req.body.id = parseInt(req.body.id); // convert string to number
         users.push(req.body);
-        res.json({
-            data: "The new user was added.",
-            success: true,
-        });
+        res.redirect("/user");
     }
 ); // add new user
 
