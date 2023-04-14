@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
         const form = `
             <form method="POST" action="/products">
                 <input type="text" name="product" />
-                <button type="submit" name="product">Add Product</button>
+                <button type="submit">Add Product</button>
             </form>
         `;
         res.write(form);
@@ -18,7 +18,19 @@ const server = http.createServer((req, res) => {
     }
 
     if ((url === "/products", method === "POST")) {
-        fs.writeFileSync("products.txt", "Something");
+        const items = [];
+
+        req.on("data", (data) => {
+            items.push(data);
+        });
+
+        req.on("end", () => {
+            const parsedData = Buffer.concat(items).toString();
+            const product = parsedData.split("=")[1];
+            console.log(product);
+            fs.writeFileSync("products.txt", product);
+        });
+
         res.statusCode = 302;
         res.setHeader("Location", "/");
         return res.end();
