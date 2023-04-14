@@ -8,4 +8,4 @@ A collection of short projects for practicing and learning node.js
 
 | Name               | Description       |
 | :----------------- | :---------------- |
-| [Node Crash app]() | Node **Training** |
+| [Node Crash app](https://github.com/sajjad-10/practice-project-node-js/tree/main/node_crash_app) | Node **Training** |
