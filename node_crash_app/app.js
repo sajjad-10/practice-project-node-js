@@ -1,13 +1,7 @@
-const redline = require("readline");
-const fs = require("fs");
+const http = require('http')
 
-const rl = redline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-
-rl.question('Product Title: ', (product)=>{
-    fs.writeFileSync('products.txt', product)
-
-    rl.close()
+const server = http.createServer((req, res)=>{
+    console.log(req);
 })
+
+server.listen(8000)
