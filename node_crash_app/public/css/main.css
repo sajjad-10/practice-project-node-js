@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    direction: rtl;
+    /* direction: rtl; */
     background-color: #202123;
     overflow: hidden;
     color: #ffffff;
