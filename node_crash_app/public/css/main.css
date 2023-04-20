@@ -1,0 +1,87 @@
+body {
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    background-color: #202123;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+main {
+    padding: 1rem;
+    margin: 1rem 5rem;
+    background-color: #303135;
+    border-radius: 0.5rem;
+}
+
+a {
+    color: inherit;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.main-header {
+    width: 100%;
+    height: 3.5rem;
+    padding: 0 1.5rem;
+}
+
+.main-header__nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-header__item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-header__item {
+    margin: 0 1rem;
+    padding: 0;
+}
+.main-header__item a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.product-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+}
+
+.form-control {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.form-control input {
+    border: none;
+    background: #616161;
+    font: inherit;
+    border-radius: 0.5rem;
+    width: 100%;
+    outline: none;
+    padding: 0.2rem;
+    color: #ffffff;
+}
+
+.product-form button {
+    font: inherit;
+    border: none;
+    color: #ffffff;
+    background: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 1rem 0;
+}
