@@ -23,7 +23,19 @@ module.exports = class Product {
             });
         });
     }
-    static fetchAll() {
-        return products;
+    static fetchAll(callback) {
+        const filePath = path.join(
+            path.dirname(require.main.filename),
+            "data",
+            "products.json"
+        );
+
+        fs.readFile(filePath, (err, data) => {
+            if (err) {
+                callback([]);
+            }
+
+            callback(JSON.parse(data));
+        });
     }
 };
