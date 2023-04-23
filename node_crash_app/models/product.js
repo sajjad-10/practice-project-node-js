@@ -1,9 +1,19 @@
-const mongoConnect = require("../util/database").getDB;
+const getDB = require("../util/database").getDB;
 class Product {
-    constructor(title, price, description) {
+    constructor(title) {
         this.title = title;
-        this.price = price;
-        this.description = description;
+    }
+    save() {
+        const db = getDB();
+        return db
+            .collection("products")
+            .insertOne(this)
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 }
 
