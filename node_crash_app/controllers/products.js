@@ -19,3 +19,15 @@ exports.getProducts = (req, res, next) => {
         })
         .catch((err) => {});
 };
+
+exports.deleteProduct = (req, res, next) => {
+    const pId = req.body.productId;
+    Product.deleteById(pId)
+        .then((result) => {
+            console.log("Product Deleted");
+            res.redirect("/");
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+};
