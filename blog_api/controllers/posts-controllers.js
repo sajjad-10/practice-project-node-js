@@ -3,12 +3,10 @@ const { validationResult } = require("express-validator");
 
 const Post = require("../models/posts");
 
-const getPostById = (req, res, next) => {
-    // const postId = req.params.pid;
-    // const post = posts.find((item) => {
-    //     return item.id === postId;
-    // });
-    // res.json({ post: post });
+const getPostById = async (req, res, next) => {
+    const postId = req.params.pid;
+    const post = await Post.findById(postId);
+    res.json({ post: post });
 };
 
 const createPosts = async (req, res, next) => {
@@ -23,12 +21,11 @@ const createPosts = async (req, res, next) => {
     res.status(201).json({ post: createdPost });
 };
 
-const deletePost = (req, res, next) => {
-    // const postId = req.params.pid;
-    // posts.filter((item) => {
-    //     return item.id !== postId;
-    // });
-    // res.status(200).json({ message: "Post Deleted" });
+const deletePost = async (req, res, next) => {
+    const postId = req.params.pid;
+    const post = await Post.findById(postId);
+    await post.remove();
+    res.status(200).json({ message: "Post Deleted" });
 };
 
 exports.getPostById = getPostById;
