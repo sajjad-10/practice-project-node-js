@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
+const { validationResult } = require("express-validator");
 
 let posts = [
     { id: "p1", title: "Title", content: "Content" },
@@ -14,6 +15,11 @@ const getPostById = (req, res, next) => {
 };
 
 const createPosts = (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(402).json({ message: "Invalid data." });
+    }
+
     const { title, content } = req.body;
     const createdPost = { id: uuidv4(), title: title, content: content };
     posts.push(createdPost);
