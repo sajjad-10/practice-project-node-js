@@ -13,10 +13,9 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-    Product.fetchAll((products) => {
-        res.render("shop", {
-            pageTitle: "Shop",
-            products: products,
-        });
-    });
+    Product.fetchAll()
+        .then((products) => {
+            res.render("shop", { pageTitle: "Shop", products: products });
+        })
+        .catch((err) => {});
 };
