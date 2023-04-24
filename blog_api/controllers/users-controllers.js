@@ -24,7 +24,6 @@ const login = async (req, res, next) => {
         res.json({ message: "User is not valid." });
     }
     const validPassword = await bcrypt.compare(password, validUser.password);
-    console.log(validPassword);
     if (!validPassword) {
         res.json({
             message: "Password is not valid.",
