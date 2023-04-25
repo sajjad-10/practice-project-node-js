@@ -1,2 +1,1 @@
-// global object
-global.console.log('Hi Node')
+console.log(module)
